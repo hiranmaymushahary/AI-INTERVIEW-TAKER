@@ -3,6 +3,9 @@ import cors from "cors";
 import { env } from "./config/env";
 import { connectDB } from "./config/db";
 import { healthRoutes } from "./routes/health.routes";
+import { interviewRouter } from "./routes/interviews.routes";
+import { feedbackRouter } from "./routes/feedback.routes";
+
 
 
 async function main() {
@@ -13,6 +16,9 @@ async function main() {
 
     
     app.use("/api/health", healthRoutes);
+    app.use("/api", interviewRouter);
+    app.use("/api", feedbackRouter);
+
   
 
 
